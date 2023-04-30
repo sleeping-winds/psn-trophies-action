@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.2
 
-      - uses: tgymnich/publish-github-action@v1.1.9
+      - uses: tgymnich/publish-github-action@v1.2.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
