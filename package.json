@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "ncc build src/index.js -o dist"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "John Losito",
+  "license": "",
   "dependencies": {
     "psn-api": "2.9.0",
     "@actions/core": "1.10.0"

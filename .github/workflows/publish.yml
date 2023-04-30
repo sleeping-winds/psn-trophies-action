@@ -11,8 +11,10 @@ jobs:
   publish:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3.5.2
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
 
-      - uses: tgymnich/publish-github-action@v1.2.2
+      - name: Publish
+        uses: tgymnich/publish-github-action@v1.2.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

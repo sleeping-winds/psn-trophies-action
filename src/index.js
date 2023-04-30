@@ -1,14 +1,15 @@
 const psn = require("psn-api");
 const fs = require("fs");
 const core = require("@actions/core");
+const process = require('process');
 
 async function main() {
   // First Signin: https://www.playstation.com/en-us/
   // Then visit: https://ca.account.sony.com/api/v1/ssocookie
-  const myNpsso = core.getInput("NPSSO");
+  const myNpsso = process.env.NPSSO ? process.env.NPSSO : core.getInput("NPSSO");
   const startComment = "<!--START_SECTION:psn-->"
   const endComment = "<!--END_SECTION:psn-->"
-  const readmePath = core.getInput("README_PATH");
+  const readmePath = process.env.README_PATH ? process.env.README_PATH : core.getInput("README_PATH");
   
   // We'll exchange your NPSSO for a special access code.
   const accessCode = await psn.exchangeNpssoForCode(myNpsso);
