@@ -7975,6 +7975,14 @@ module.exports = require("path");
 
 /***/ }),
 
+/***/ 7282:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("process");
+
+/***/ }),
+
 /***/ 5477:
 /***/ ((module) => {
 
@@ -8075,14 +8083,15 @@ var __webpack_exports__ = {};
 const psn = __nccwpck_require__(2314);
 const fs = __nccwpck_require__(7147);
 const core = __nccwpck_require__(2186);
+const process = __nccwpck_require__(7282);
 
 async function main() {
   // First Signin: https://www.playstation.com/en-us/
   // Then visit: https://ca.account.sony.com/api/v1/ssocookie
-  const myNpsso = core.getInput("NPSSO");
+  const myNpsso = process.env.NPSSO ? process.env.NPSSO : core.getInput("NPSSO");
   const startComment = "<!--START_SECTION:psn-->"
   const endComment = "<!--END_SECTION:psn-->"
-  const readmePath = core.getInput("README_PATH");
+  const readmePath = process.env.README_PATH ? process.env.README_PATH : core.getInput("README_PATH");
   
   // We'll exchange your NPSSO for a special access code.
   const accessCode = await psn.exchangeNpssoForCode(myNpsso);
